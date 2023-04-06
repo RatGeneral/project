@@ -1,15 +1,22 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const routes = require('./routes');
+
+const { mongoDb } = require('./db');
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json()); // Заменили body-parser на express.json()
+app.use(express.urlencoded({ extended: false })); // Заменили body-parser на express.urlencoded()
 app.use('/', routes);
 
-const PORT = process.env.PORT || 3000;
+mongoDb.once('open', () => {
+  console.log('Connected to MongoDB');
+  app.listen(3000, () => {
+    console.log('Сервер работает на порту 3000');
+  });
+});
 
-app.listen(PORT, () => {
-  console.log(`Сервер работает на порту ${PORT}`);
+mongoDb.on('error', (error) => {
+  console.error('MongoDB connection failed:', error);
+  throw error;
 });
