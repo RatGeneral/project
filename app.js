@@ -1,9 +1,13 @@
 const express = require('express');
 const routes = require('./routes');
 
+const path = require('path'); 
+
 const { mongoDb } = require('./db');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json()); // Заменили body-parser на express.json()
 app.use(express.urlencoded({ extended: false })); // Заменили body-parser на express.urlencoded()
