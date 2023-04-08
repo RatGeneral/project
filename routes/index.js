@@ -9,6 +9,8 @@ const userRoutes = require('./mongodb/userRoutes');
 const followRoutes = require('./mongodb/followRoutes');
 const groupRoutes = require('./sqlite/groupRoutes');
 const eventRoutes = require('./sqlite/eventRoutes');
+const pageRoutes = require('./pages/pageRoutes');
+
 
 router.use('/users', userRoutes);
 router.use('/follows', followRoutes);
@@ -17,5 +19,6 @@ router.use('/events', eventRoutes);
 router.use('/search', searchHistoryRoutes);
 router.use('/images', imageViewRoutes);
 router.use('/likes', likeRoutes);
+router.use('/', pageRoutes);
 
 module.exports = router;
