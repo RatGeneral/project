@@ -1,32 +1,3 @@
-// const mongoose = require('mongoose');
-
-// // MongoDB Connection
-// const MONGO_DB_URL = 'mongodb://localhost:27017/network';
-// mongoose.connect(MONGO_DB_URL, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-// const mongoDb = mongoose.connection;
-
-// mongoDb.on('error', (error) => {
-//   console.error('MongoDB connection failed:', error);
-//   throw error;
-// });
-
-// // SQLite Connection
-// const sqlite3 = require('sqlite3').verbose();
-// const SQLITE_DB_FILE = './my_database.sqlite';
-// const sqliteDb = new sqlite3.Database(SQLITE_DB_FILE, (error) => {
-//   if (error) {
-//     console.error('SQLite connection failed:', error);
-//     throw error;
-//   }
-// });
-
-// module.exports = {
-//   mongoDb,
-//   sqliteDb,
-// };
 const mongoose = require('mongoose');
 const sqlite3 = require('sqlite3').verbose();
 
